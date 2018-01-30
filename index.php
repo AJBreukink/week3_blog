@@ -26,9 +26,9 @@
               <?php if ( $news && !empty($news) ) :?>
 
               <?php foreach ($news as $key => $article) :?>
-                  <h2><a href="read-news.php?newsid=<?= $article->news_id ?>"><?= stripslashes($article->news_title) ?></a></h2>
-                  <p><?= stripslashes($article->news_short_description) ?></p>
-                  <span>gepubliceerd op <?= date("M, jS  Y, H:i", $article->news_published_on) ?> by <?= stripslashes($article->news_author) ?></span>
+                  <h2><a href="readnews.php?news_id=<?= $article->news_id ?>"><?= stripslashes($article->news_title) ?></a></h2>
+                  <p><?= stripslashes($article->news_desc) ?></p>
+                <!--  <span>gepubliceerd op </?= date("M, jS  Y, H:i", $article->news_published_on) ?> by </?= stripslashes($article->news_author) ?></span> -->
               <?php endforeach?>
 
               <?php endif?>
