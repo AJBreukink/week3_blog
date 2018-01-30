@@ -20,7 +20,7 @@ html, body
 
 a{
     text-decoration: none;
-    color: #e45;
+    color: #CD5360;
 }
 
 .welcome
@@ -28,7 +28,8 @@ a{
     width: 800px;
     margin: 2em auto;
     padding: 10px 30px;
-    border: 2px solid #0DDED0;
+    border: 5px solid #438496;
+    /*#286DA8; */
     background-color: #ffffff;
 }
 
@@ -53,22 +54,24 @@ a{
     width: 800px;
     margin: 0.5em auto;
     padding: 30px;
-    border: 2px solid #0DDED0;
+    border: 5px solid #438496;
+    /*#286DA8;*/
     background-color: #ffffff;
 }
 
 .news-box h2
 {
-    font-size: 1.3em;
+    font-size: 18px;
+    font-weight: bold;
     padding: 0;
     margin-bottom: 0;
 
-    color: #e45;
+    color: #CD5360;
 }
 
 .news-box p
 {
-    font-size: 12px;
+    font-size: 16px;
     padding: 0;
     margin-bottom: 0.3em;
 
