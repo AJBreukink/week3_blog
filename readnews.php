@@ -11,8 +11,7 @@
 
     <div class="welcome">
       <h1>AJ Blog</h1>
-      <p>Welkom op het test blog</p>
-      <a href="index.php">terug naar home page</a>
+      <a href="index.php">Back to home page</a>
       </div>
 
     <div class="news-box">
@@ -53,14 +52,18 @@
         </div>
 
         <hr>
-        <h3>andere artikelen</h3>
-
+        <br>
+        <br>
+        <br>
+        <br>
+        <h3>Other articles</h3>
         <div class="similar-posts">
           <?php if ( !empty($other_articles) && $other_articles ) :?>
 
           <?php foreach ($other_articles as $key => $article) :?>
           <h2><a href="readnews.php?news_id=<?= $article->news_id ?>"><?= stripslashes($article->news_title) ?></a></h2>
           <p><?= stripslashes($article->news_desc) ?></p>
+          <div id="betweenline"> </div>
           <?php endforeach?>
 
           <?php endif?>

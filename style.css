@@ -13,6 +13,10 @@ html, body
     background-color: white;
 }
 
+#betweenline {
+  border-bottom: 2px solid #B37D4E;
+}
+
 *
 {
     box-sizing: border-box;
@@ -23,9 +27,18 @@ a{
     color: #CD5360;
 }
 
+.error
+{
+    width: 600px;
+    margin: 2em auto;
+    padding: 10px 30px;
+    border: 5px solid #E24E42;
+    background-color: #ffffff;
+}
+
 .welcome
 {
-    width: 800px;
+    width: 1000px;
     margin: 2em auto;
     padding: 10px 30px;
     border: 5px solid #438496;
@@ -35,11 +48,14 @@ a{
 
 .welcome a
 {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+    appearance: button;
     display: inline-block;
-    width: 200px;
-
-    padding: 0.5em;
-    text-align: center;
+    width: 220px;
+    padding: 2px;
+    float: right;
+    margin-top: -35px;
 }
 
 .welcome h1
@@ -50,7 +66,7 @@ a{
 
 .news-box
 {
-    width: 800px;
+    width: 1000px;
     margin: 0.5em auto;
     padding: 30px;
     border: 5px solid #438496;
@@ -60,12 +76,22 @@ a{
 
 .news-box h2
 {
-    font-size: 18px;
+    font-size: 26px;
     font-weight: bold;
     padding: 0;
     margin-bottom: 0;
 
     color: #CD5360;
+}
+
+.news-box h3
+{
+    font-size: 26px;
+    font-weight: bold;
+    padding: 0;
+    margin-bottom: 0;
+
+    color: black;
 }
 
 .news-box p
@@ -74,12 +100,5 @@ a{
     padding: 0;
     padding-bottom: 10px;
     margin-bottom: 0.3em;
-    border-bottom: 2px solid #B37D4E;
-    color: #555;
-}
-
-.news-box span
-{
-    font-size: 10px;
-    color: #aaa;
+    color: black;
 }

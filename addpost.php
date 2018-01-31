@@ -28,8 +28,8 @@ require 'functions.php';
 <div id="container">
 
   <div class="welcome">
-    <h1>AJ Blog</h1>
-      <p>Blogpost toevoegen</p>
+    <h1>Write a new article</h1>
+    <a href="index.php">back to home page</a>
   </div>
 
     <?php
@@ -88,13 +88,13 @@ require 'functions.php';
       <form action='' method='post'>
 
         <p><label>Title</label><br />
-        <textarea name='postTitle' cols='100' rows='1'><?php if(isset($error)){ echo $_POST['postTitle'];}?></textarea></p>
+        <input type='text' name='postTitle' value='<?php if(isset($error)){ echo $_POST['postTitle'];}?>'></p>
 
         <p><label>Description</label><br />
-        <textarea name='postDesc' cols='100' rows='3'><?php if(isset($error)){ echo $_POST['postDesc'];}?></textarea></p>
+        <textarea name='postDesc'><?php if(isset($error)){ echo $_POST['postDesc'];}?></textarea></p>
 
         <p><label>Content</label><br />
-        <textarea name='postCont' cols='100' rows='10'><?php if(isset($error)){ echo $_POST['postCont'];}?></textarea></p>
+        <textarea name='postCont'><?php if(isset($error)){ echo $_POST['postCont'];}?></textarea></p>
 
         <p><input type='submit' name='submit' value='Post'></p>
 
