@@ -23,7 +23,7 @@
     function getOtherArticles( $differ_id, $conn )
     {
         $request =  $conn->prepare(" SELECT news_id,  news_title, news_desc, news_content, news_author
-          FROM blogarticles  WHERE news_id != ? ");
+          FROM blogarticles  WHERE news_id != ? ORDER BY news_id DESC ");
         return $request->execute(array($differ_id)) ? $request->fetchAll() : false;
     }
 

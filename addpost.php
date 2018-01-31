@@ -70,7 +70,7 @@ require 'functions.php';
                 exit;
                 */
             } catch(PDOException $e) {
-                echo $e->getMessage();
+                echo '<p class="error">'.$e->getMessage().'</p>';
             }
 
         }

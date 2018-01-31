@@ -11,7 +11,7 @@
 
     <div class="welcome">
       <h1>AJ Blog</h1>
-        <p>Welcome my blog project</p>
+        <p>Welcome to my blog project</p>
     </div>
 
     <div class="news-box">
