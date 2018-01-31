@@ -6,6 +6,6 @@ voltooide UserStories:
 - w3-001
 - w3-002
 - w3-007
-
+- w3-008
 voltooide 'eigen stories' :
 - functionele DB
