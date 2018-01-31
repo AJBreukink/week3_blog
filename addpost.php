@@ -7,7 +7,7 @@ require 'functions.php';
   <meta charset="utf-8">
   <title>Add Post</title>
   <link rel="stylesheet" type="text/css" href="style.css">
-  <!--
+
   <script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
   <script>
           tinymce.init({
@@ -21,7 +21,7 @@ require 'functions.php';
           });
 
   </script>
--->
+
 </head>
 <body>
 
@@ -88,7 +88,7 @@ require 'functions.php';
       <form action='' method='post'>
 
         <p><label>Title</label><br />
-        <input type='text' name='postTitle' value='<?php if(isset($error)){ echo $_POST['postTitle'];}?>'></p>
+        <textarea name='postTitle' cols='100' rows='1'><?php if(isset($error)){ echo $_POST['postTitle'];}?></textarea></p>
 
         <p><label>Description</label><br />
         <textarea name='postDesc' cols='100' rows='3'><?php if(isset($error)){ echo $_POST['postDesc'];}?></textarea></p>
