@@ -50,7 +50,6 @@ a{
 
 .news-box
 {
-
     width: 800px;
     margin: 0.5em auto;
     padding: 30px;
@@ -73,6 +72,7 @@ a{
 {
     font-size: 16px;
     padding: 0;
+    padding-bottom: 10px;
     margin-bottom: 0.3em;
     border-bottom: 2px solid #B37D4E;
     color: #555;
