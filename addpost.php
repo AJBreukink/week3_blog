@@ -67,7 +67,7 @@ require 'functions.php';
                 //insert into database
                 $pdo = connect_to_db();
                 $sendPost = "INSERT INTO blogarticles(title, description, content, category_id) " .
-                            "VALUES ('$postTitle', '$postDesc', '$postCont')";
+                            "VALUES ('$postTitle', '$postDesc', '$postCont', '$postCat')";
                 $pdo->exec($sendPost);
 
                 //redirect to index page
@@ -95,13 +95,15 @@ require 'functions.php';
         <p><label>Title</label><br />
         <input type='text' name='postTitle' value='<?php if(isset($error)){ echo $_POST['postTitle'];}?>'></p>
 
-        <p><label>Category</label><br />
-          <select name="postCat">
+        <p><label>Category</label><br/>
+          <select name="postCat" >
           <option value="1">Programming</option>
           <option value="2">In the News</option>
           <option value="3">Daily Life</option>
           <option value="4">Interesting</option>
+          <?php if(isset($error)){ echo $_POST['postDesc'];}?>
           </select>
+        </p>
         <!--<input type='text' name='postCat' value='</?php if(isset($error)){ echo $_POST['postCat'];}?>'></p> -->
 
         <p><label>Description</label><br />
