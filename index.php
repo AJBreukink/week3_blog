@@ -7,6 +7,13 @@
 </head>
 <body>
 
+  <div class="sidenav">
+    <a href="categories.php?category=1">Programming</a>
+    <a href="categories.php?category=2">In the News</a>
+    <a href="categories.php?category=3">Daily Life</a>
+    <a href="categories.php?category=4">Interesting</a>
+  </div>
+
   <div class="container">
 
     <div class="welcome">
@@ -26,11 +33,26 @@
 
         <?php if ( $news && !empty($news) ) :?>
 
-        <?php foreach ($news as $key => $article) :?>
-          <h2><a href="readnews.php?news_id=<?= $article->news_id ?>"><?= stripslashes($article->news_title) ?></a></h2>
-          <p><?= stripslashes($article->news_desc) ?></p>
+        <?php foreach ($news as $key => $article) :
+
+          $category;
+          $catid = stripslashes($article->category_id);
+          if ($catid == 1) {
+          $category = 'Programming';
+          } elseif ($catid == 2) {
+          $category = 'In the News';
+          } elseif ($catid == 3) {
+          $category = 'Daily Life';
+          } elseif ($catid == 4) {
+          $category = 'Interesting';
+          }
+          ?>
+
+          <div id="category"><?= $category ?></div>
+          <h2><a href="readnews.php?postid=<?= $article->postid ?>">
+          <?= stripslashes($article->title) ?></a></h2>
+          <p><?= stripslashes($article->description) ?></p>
           <div id="betweenline"> </div>
-          <!--<span>gepubliceerd op </?= date("M, jS  Y, H:i", $article->news_published_on) ?> by </?= stripslashes($article->news_author) ?></span>-->
         <?php endforeach?>
 
         <?php endif?>

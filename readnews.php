@@ -7,6 +7,13 @@
 </head>
 <body>
 
+  <div class="sidenav">
+    <a href="categories.php?category=1">Programming</a>
+    <a href="categories.php?category=2">In the News</a>
+    <a href="categories.php?category=3">Daily Life</a>
+    <a href="categories.php?category=4">Interesting</a>
+  </div>
+
   <div class="container">
 
     <div class="welcome">
@@ -18,11 +25,11 @@
 
         <div class="news">
             <?php
-                // get the database handler
+                // get requested article by its id
                 $dbh = connect_to_db();
                 $id_article;
-                if(isset($_GET['news_id'])){
-                $id_article = (int)$_GET['news_id'];
+                if(isset($_GET['postid'])){
+                $id_article = (int)$_GET['postid'];
               }
                 $other_articles;
                 if ( !empty($id_article) && $id_article > 0) {
@@ -39,12 +46,25 @@
 
                 ?>
 
-            <?php if (!empty($article) && $article) :?>
+            <?php if (!empty($article) && $article) :
+              $category;
+              $catid = stripslashes($article->category_id);
+              if ($catid == 1) {
+              $category = 'Programming';
+              } elseif ($catid == 2) {
+              $category = 'In the News';
+              } elseif ($catid == 3) {
+              $category = 'Daily Life';
+              } elseif ($catid == 4) {
+              $category = 'Interesting';
+              }
+              ?>
 
-            <h2><?= stripslashes($article->news_title) ?></h2>
-            <!--<span>gepubliceerd op </?= date("M, jS  Y, H:i", $article->news_published_on) ?> by </?= stripslashes($article->news_author) ?></span>-->
+            <div id="category"><?= $category ?></div>
+            <h2><?= stripslashes($article->title) ?></h2>
+
             <div>
-                <?= stripslashes($article->news_content) ?>
+                <?= stripslashes($article->content) ?>
             </div>
             <?php else:?>
 
@@ -60,10 +80,23 @@
         <div class="similar-posts">
         <?php if ( !empty($other_articles) && $other_articles ) :
                 $i = 0;
-                foreach ($other_articles as $key => $article) :?>
-          <h2><a href="readnews.php?news_id=<?= $article->news_id ?>"><?= stripslashes($article->news_title) ?></a></h2>
-          <p><?= stripslashes($article->news_desc) ?></p>
-          <div id="betweenline"> </div>
+                foreach ($other_articles as $key => $article) :
+                  $categoryOther;
+                  $catid = stripslashes($article->category_id);
+                  if ($catid == 1) {
+                  $categoryOther = 'Programming';
+                  } elseif ($catid == 2) {
+                  $categoryOther = 'In the News';
+                  } elseif ($catid == 3) {
+                  $categoryOther = 'Daily Life';
+                  } elseif ($catid == 4) {
+                  $categoryOther = 'Interesting';
+                  }
+                  ?>
+                <div id="category"><?= $categoryOther ?></div>
+                <h2><a href="readnews.php?news_id=<?= $article->postid ?>"><?= stripslashes($article->title) ?></a></h2>
+                <p><?= stripslashes($article->description) ?></p>
+                <div id="betweenline"> </div>
           <?php
                   if (++$i == 4) break;
                 endforeach?>

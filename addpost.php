@@ -11,13 +11,14 @@ require 'functions.php';
   <script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
   <script>
           tinymce.init({
+              content_css : "inputstyle.css",
               selector: "textarea",
               plugins: [
                   "advlist autolink lists link image charmap print preview anchor",
                   "searchreplace visualblocks code fullscreen",
                   "insertdatetime media table contextmenu paste"
               ],
-              toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+              toolbar: "insertfile undo redo | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
           });
 
   </script>
@@ -29,7 +30,7 @@ require 'functions.php';
 
   <div class="welcome">
     <h1>Write a new article</h1>
-    <a href="index.php">back to home page</a>
+    <a href="index.php">Back to home page</a>
   </div>
 
     <?php
@@ -47,6 +48,10 @@ require 'functions.php';
             $error[] = 'Please enter the title.';
         }
 
+        if($postCat ==''){
+            $error[] = 'Please enter the category.';
+        }
+
         if($postDesc ==''){
             $error[] = 'Please enter the description.';
         }
@@ -61,14 +66,14 @@ require 'functions.php';
 
                 //insert into database
                 $pdo = connect_to_db();
-                $sendPost = "INSERT INTO blogarticles(news_title, news_desc, news_content) " .
+                $sendPost = "INSERT INTO blogarticles(title, description, content, category_id) " .
                             "VALUES ('$postTitle', '$postDesc', '$postCont')";
                 $pdo->exec($sendPost);
-                /*
+
                 //redirect to index page
                 header('Location: index.php?action=added');
                 exit;
-                */
+
             } catch(PDOException $e) {
                 echo '<p class="error">'.$e->getMessage().'</p>';
             }
@@ -89,6 +94,15 @@ require 'functions.php';
 
         <p><label>Title</label><br />
         <input type='text' name='postTitle' value='<?php if(isset($error)){ echo $_POST['postTitle'];}?>'></p>
+
+        <p><label>Category</label><br />
+          <select name="postCat">
+          <option value="1">Programming</option>
+          <option value="2">In the News</option>
+          <option value="3">Daily Life</option>
+          <option value="4">Interesting</option>
+          </select>
+        <!--<input type='text' name='postCat' value='</?php if(isset($error)){ echo $_POST['postCat'];}?>'></p> -->
 
         <p><label>Description</label><br />
         <textarea name='postDesc'><?php if(isset($error)){ echo $_POST['postDesc'];}?></textarea></p>

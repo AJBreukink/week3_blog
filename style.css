@@ -13,6 +13,33 @@ html, body
     background-color: white;
 }
 
+.sidenav {
+   width: 200px;
+   position: fixed;
+   z-index: 1;
+   top: 0;
+   left: 0;
+   background-color: #111;
+   overflow-x: hidden;
+}
+
+.sidenav a {
+   padding: 6px 8px 6px 16px;
+   text-decoration: none;
+   font-size: 25px;
+   color: #818181;
+   display: block;
+}
+
+.sidenav a:hover {
+   color: #f1f1f1;
+}
+
+@media screen and (max-height: 450px) {
+   .sidenav {padding-top: 15px;}
+   .sidenav a {font-size: 18px;}
+}
+
 #betweenline {
   border-bottom: 2px solid #B37D4E;
 }
@@ -46,6 +73,7 @@ a{
     border: 5px solid #438496;
     /*#286DA8; */
     background-color: #ffffff;
+    border-radius: 2px;
 }
 
 .welcome a
@@ -75,10 +103,12 @@ a{
     border: 5px solid #438496;
     /*#286DA8;*/
     background-color: #ffffff;
+    border-radius: 2px;
 }
 
 .news-box h2
 {
+    display: inline-block;
     font-size: 26px;
     font-weight: bold;
     padding: 0;
@@ -104,4 +134,21 @@ a{
     padding-bottom: 10px;
     margin-bottom: 0.3em;
     color: black;
+}
+
+#category {
+    display: inline-block;
+    float: right;
+    border: 1px solid #EEAA78;
+    border-radius: 8px;
+    padding: 2px 30px;
+    margin-top: 24px;
+    font-size: 18px;
+    color: white;
+    background-color: #DF744A;
+  }
+
+.news-box span
+{
+
 }

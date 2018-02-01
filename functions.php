@@ -4,9 +4,9 @@
     function fetchNews( $conn )
     {
 
-        $request = $conn->prepare(" SELECT news_id, news_title, news_desc, news_author
+        $request = $conn->prepare(" SELECT postid, title, description, category_id
           FROM blogarticles
-          ORDER BY news_id DESC ");
+          ORDER BY postid DESC ");
         return $request->execute() ? $request->fetchAll() : false;
     }
 
@@ -14,17 +14,25 @@
     function getAnArticle( $id_article, $conn )
     {
 
-        $request =  $conn->prepare(" SELECT news_id,  news_title, news_content, news_author
-          FROM blogarticles WHERE news_id = ? ");
+        $request =  $conn->prepare(" SELECT postid, title, content, category_id
+          FROM blogarticles WHERE postid = ? ");
         return $request->execute(array($id_article)) ? $request->fetchAll() : false;
     }
 
 
     function getOtherArticles( $differ_id, $conn )
     {
-        $request =  $conn->prepare(" SELECT news_id,  news_title, news_desc, news_content, news_author
-          FROM blogarticles  WHERE news_id != ? ORDER BY news_id DESC ");
+        $request =  $conn->prepare(" SELECT postid, title, description, content, category_id
+          FROM blogarticles  WHERE postid != ? ORDER BY postid DESC ");
         return $request->execute(array($differ_id)) ? $request->fetchAll() : false;
+    }
+
+
+    function getCategories( $id_category, $conn )
+    {
+        $request =  $conn->prepare(" SELECT postid, title, description, content, category_id
+          FROM blogarticles WHERE category_id = ? ORDER BY postid DESC");
+        return $request->execute(array($id_category)) ? $request->fetchAll() : false;
     }
 
 ?>
