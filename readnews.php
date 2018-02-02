@@ -7,12 +7,13 @@
 </head>
 <body>
 
-  <div class="sidenav">
-    <a href="categories.php?category=1">Programming</a>
-    <a href="categories.php?category=2">In the News</a>
-    <a href="categories.php?category=3">Daily Life</a>
-    <a href="categories.php?category=4">Interesting</a>
-  </div>
+    <div class="sidenav">
+      <h3> Categories: <h3>
+      <a href="categories.php?category=1">Programming</a>
+      <a href="categories.php?category=2">In the News</a>
+      <a href="categories.php?category=3">Daily Life</a>
+      <a href="categories.php?category=4">Interesting</a>
+    </div>
 
   <div class="container">
 
@@ -55,7 +56,7 @@
               $category = 'In the News';
               } elseif ($catid == 3) {
               $category = 'Daily Life';
-              } elseif ($catid == 4) {
+              } else {
               $category = 'Interesting';
               }
               ?>
@@ -94,7 +95,7 @@
                   }
                   ?>
                 <div id="category"><?= $categoryOther ?></div>
-                <h2><a href="readnews.php?news_id=<?= $article->postid ?>"><?= stripslashes($article->title) ?></a></h2>
+                <h2><a href="readnews.php?postid=<?= $article->postid ?>"><?= stripslashes($article->title) ?></a></h2>
                 <p><?= stripslashes($article->description) ?></p>
                 <div id="betweenline"> </div>
           <?php

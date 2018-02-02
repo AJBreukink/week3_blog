@@ -8,6 +8,7 @@
 <body>
 
   <div class="sidenav">
+    <h3> Categories: <h3>
     <a href="categories.php?category=1">Programming</a>
     <a href="categories.php?category=2">In the News</a>
     <a href="categories.php?category=3">Daily Life</a>
@@ -17,8 +18,8 @@
   <div class="container">
 
     <div class="welcome">
-      <h1>AJ Blog</h1>
-        <p>Welcome to my blog project</p>
+      <h1> Welcome to AJ's Blog</h1>
+        <a href="addpost.php">Write an Article</a>
     </div>
 
     <div class="news-box">
@@ -31,9 +32,9 @@
           $news = fetchNews($dbh);
           ?>
 
-        <?php if ( $news && !empty($news) ) :?>
+    <?php if ( $news && !empty($news) ) :
 
-        <?php foreach ($news as $key => $article) :
+          foreach ($news as $key => $article) :
 
           $category;
           $catid = stripslashes($article->category_id);
@@ -43,7 +44,7 @@
           $category = 'In the News';
           } elseif ($catid == 3) {
           $category = 'Daily Life';
-          } elseif ($catid == 4) {
+          } else {
           $category = 'Interesting';
           }
           ?>

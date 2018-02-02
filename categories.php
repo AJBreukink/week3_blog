@@ -7,12 +7,13 @@
 </head>
 <body>
 
-  <div class="sidenav">
-    <a href="categories.php?category=1">Programming</a>
-    <a href="categories.php?category=2">In the News</a>
-    <a href="categories.php?category=3">Daily Life</a>
-    <a href="categories.php?category=4">Interesting</a>
-  </div>
+    <div class="sidenav">
+      <h3> Categories: <h3>
+      <a href="categories.php?category=1">Programming</a>
+      <a href="categories.php?category=2">In the News</a>
+      <a href="categories.php?category=3">Daily Life</a>
+      <a href="categories.php?category=4">Interesting</a>
+    </div>
 
     <?php
       //fetch articles with selected category_id
@@ -26,19 +27,20 @@
       $category;
       if ($catid == 1) {
       $category = 'Programming';
-    } elseif ($catid == 2) {
+      } elseif ($catid == 2) {
       $category = 'In the News';
-    } elseif ($catid == 3) {
+      } elseif ($catid == 3) {
       $category = 'Daily Life';
-    } elseif ($catid == 4) {
+      } else {
       $category = 'Interesting';
-    }
+      }
       ?>
 
   <div class="container">
 
     <div class="welcome">
       <h1>Category: <? echo $category ?></h1>
+      <a href="index.php">Back to home page</a>
     </div>
 
     <div class="news-box">
