@@ -63,10 +63,8 @@
 
             <div id="category"><?= $category ?></div>
             <h2><?= stripslashes($article->title) ?></h2>
-
-            <div>
-                <?= stripslashes($article->content) ?>
-            </div>
+            <div><?= stripslashes($article->content) ?></div>
+            <p id="postdate" >Posted on <?= date('jS M Y H:i:s', strtotime($article->postdate)) ?> </p>
             <?php else:?>
 
             <?php endif?>
@@ -97,6 +95,7 @@
                 <div id="category"><?= $categoryOther ?></div>
                 <h2><a href="readnews.php?postid=<?= $article->postid ?>"><?= stripslashes($article->title) ?></a></h2>
                 <p><?= stripslashes($article->description) ?></p>
+                <p id="postdate" >Posted on <?= date('jS M Y H:i:s', strtotime($article->postdate)) ?> </p>
                 <div id="betweenline"> </div>
           <?php
                   if (++$i == 4) break;

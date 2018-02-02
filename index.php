@@ -7,15 +7,16 @@
 </head>
 <body>
 
-  <div class="sidenav">
-    <h3> Categories: <h3>
-    <a href="categories.php?category=1">Programming</a>
-    <a href="categories.php?category=2">In the News</a>
-    <a href="categories.php?category=3">Daily Life</a>
-    <a href="categories.php?category=4">Interesting</a>
-  </div>
-
   <div class="container">
+
+      <div class="sidenav">
+        <h3> Categories: <h3>
+        <a href="categories.php?category=1">Programming</a>
+        <a href="categories.php?category=2">In the News</a>
+        <a href="categories.php?category=3">Daily Life</a>
+        <a href="categories.php?category=4">Interesting</a>
+      </div>
+
 
     <div class="welcome">
       <h1> Welcome to AJ's Blog</h1>
@@ -53,6 +54,7 @@
           <h2><a href="readnews.php?postid=<?= $article->postid ?>">
           <?= stripslashes($article->title) ?></a></h2>
           <p><?= stripslashes($article->description) ?></p>
+          <p id="postdate" >Posted on <?= date('jS M Y H:i:s', strtotime($article->postdate)) ?> </p>
           <div id="betweenline"> </div>
         <?php endforeach?>
 

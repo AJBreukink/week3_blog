@@ -43,6 +43,8 @@ require 'functions.php';
         //collect form data
         extract($_POST);
 
+        $postdate = date('Y-m-d H:i:s');
+
         //very basic validation
         if($postTitle ==''){
             $error[] = 'Please enter the title.';
@@ -66,8 +68,8 @@ require 'functions.php';
 
                 //insert into database
                 $pdo = connect_to_db();
-                $sendPost = "INSERT INTO blogarticles(title, description, content, category_id) " .
-                            "VALUES ('$postTitle', '$postDesc', '$postCont', '$postCat')";
+                $sendPost = "INSERT INTO blogarticles(title, description, content, postdate, category_id) " .
+                            "VALUES ('$postTitle', '$postDesc', '$postCont', '$postdate', '$postCat')";
                 $pdo->exec($sendPost);
 
                 //redirect to index page
